@@ -1,0 +1,31 @@
+.loading-wrapper {
+  g {
+    text {
+      font-size: 14px;
+      text-anchor: middle;
+      fill: #418bfd;
+    }
+    circle {
+      fill: none;
+      stroke-width: 5px;
+      stroke: #418bfd;
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+      animation: svg-loading-rolling 1.5s linear infinite;
+    }
+  }
+  @keyframes svg-loading-rolling {
+    from {
+      stroke-dasharray: 600;
+      stroke-dashoffset: 600;
+      transform: rotate(0);
+      transform-origin: 50px 50px;
+    }
+    to {
+      stroke-dashoffset: 0;
+      transform: rotate(720deg);
+      transform-origin: 50px 50px;
+      opacity: 0.1;
+    }
+  }
+}

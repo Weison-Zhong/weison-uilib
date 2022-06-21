@@ -1,0 +1,19 @@
+{
+  "name": "weison-react-uilib",
+  "version": "0.0.1",
+  "description": "my ui lib",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "author": "WeisonZhong",
+  "license": "ISC"
+}
