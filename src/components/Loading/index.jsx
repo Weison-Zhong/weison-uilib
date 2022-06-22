@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.less";
-export default function Loading() {
+function Loading() {
   return (
     <div className="loading-wrapper">
       <svg width="100" height="100">
@@ -14,3 +14,5 @@ export default function Loading() {
     </div>
   );
 }
+
+export default React.memo(Loading);
