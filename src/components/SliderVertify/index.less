@@ -1,11 +1,5 @@
 .vertify-wrapper {
-  .canvas-container {
-    canvas {
-      width: 320px;
-      height: 160px;
-    }
-  }
-
+  position: relative;
   .block {
     position: absolute;
     left: 0;
@@ -13,8 +7,39 @@
     cursor: pointer;
     cursor: grab;
   }
-
   .block:active {
     cursor: grabbing;
+  }
+
+  .slider-container {
+    position: relative;
+    text-align: center;
+    width: 310px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 15px;
+    background: #f7f9fa;
+    color: #45494c;
+    border: 1px solid #e4e7eb;
+    .mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 40px;
+      border: 0 solid #486cd6;
+      background: #d1e9fe;
+      .slider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        transition: background 0.2s linear;
+        cursor: pointer;
+        cursor: grab;
+      }
+    }
   }
 }

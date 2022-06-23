@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, ReactNode, memo } from "react";
-
+import "./index.less";
 const width = 320,
   height = 160;
 const PI = Math.PI,
@@ -7,6 +7,7 @@ const PI = Math.PI,
   r = 9; //滑块半径
 const L = l + r * 2 + 3; // 滑块实际边长
 function SliderVertify() {
+  const [sliderOffset, setSliderOffset] = useState(0);
   const canvasRef = useRef();
   const blockRef = useRef();
   const imgRef = useRef();
@@ -17,13 +18,13 @@ function SliderVertify() {
       "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6e2804b48f99443d99806b7d02dd94da~tplv-k3u1fbpfcp-zoom-crop-mark:3024:3024:3024:1702.awebp?";
     img.onload = () => {
       const canvasCtx = canvasRef.current.getContext("2d");
+      drawPath(canvasCtx, 50, 50, "fill"); //镂空形状
+      canvasCtx.drawImage(img, 0, 0, width, height); //插入背景图
+
       const blockCtx = blockRef.current.getContext("2d");
-      drawPath(canvasCtx, 50, 50, "fill"); //被抠掉拼图块后剩下的背景图
-      drawPath(blockCtx, 50, 50, "clip"); //抠出的拼图块
-      // 画入图片
-      canvasCtx.drawImage(img, 0, 0, width, height);
+      drawPath(blockCtx, 50, 50, "clip"); //使用clip裁剪图案
       blockCtx.drawImage(img, 0, 0, width, height);
-      // 提取滑块并放到最左边
+      // // 提取滑块并放到最左边
       const y1 = 50 - r * 2 - 1;
       const ImageData = blockCtx.getImageData(50 - 3, y1, L, L);
       blockRef.current.width = L;
@@ -34,15 +35,35 @@ function SliderVertify() {
     drawCanvas();
   }, []);
   return (
-    <div className="vertify-wrapper">
+    <div
+      className="vertify-wrapper"
+      style={{
+        width: width + "px",
+        // margin: "0 auto",
+        // display: visible ? "" : "none",
+      }}
+    >
       <div className="canvas-container">
-        <canvas ref={canvasRef}></canvas>
-        <canvas ref={blockRef} className="block"></canvas>
+        <canvas ref={canvasRef} width={width} height={height}></canvas>
+        <canvas
+          ref={blockRef}
+          className="block"
+          width={width}
+          height={height}
+        ></canvas>
       </div>
-      <div className="slider-container">
-        <div className="mask"></div>
-        <div className="slider"></div>
-        <div className="arr"></div>
+      <div
+        className="slider-container"
+        style={{
+          // pointerEvents: isLoading ? "none" : "auto",
+          width: width + "px",
+        }}
+      >
+        <div className="mask" style={{ width: sliderOffset + "px" }}>
+          <div className="slider" style={{ width: sliderOffset + "px" }}>
+            <div className="icon-arr">&rarr;</div>
+          </div>
+        </div>
       </div>
       <div className="loading-container">
         <span>加载中</span>
