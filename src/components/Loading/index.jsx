@@ -1,8 +1,12 @@
 import React from "react";
 import "./index.less";
-function Loading() {
+function Loading({ className = "", isCenter = false }) {
   return (
-    <div className="loading-wrapper">
+    <div
+      className={`loading-wrapper${
+        (className ? " " + className : "") + (isCenter ? " center" : "")
+      }`}
+    >
       <svg width="100" height="100">
         <g>
           <text x="50" y="55">

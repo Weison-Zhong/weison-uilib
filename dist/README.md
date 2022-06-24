@@ -1,4 +1,5 @@
-### 个人React UI组件库
-#### 更新日志
-* 2022-06-21 v0.0.1  Loading组件
-* 2022-06-23 v0.0.2  Slider滑动验证组件，细节待完善
+#### 个人React UI组件库
+
+#### 使用步骤
+* yarn add weison-react-uilib or npm install weison-react-uilib
+* import { Loading, SliderVertify } from "weison-react-uilib"
