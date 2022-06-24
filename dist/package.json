@@ -1,7 +1,15 @@
 {
   "name": "weison-react-uilib",
-  "version": "0.0.2",
+  "author": "WeisonZhong",
+  "version": "0.0.5",
   "description": "个人React UI组件库-学习阶段",
+  "keywords": [
+    "slider-vertify",
+    "component",
+    "react",
+    "react-component",
+    "钟伟胜"
+  ],
   "main": "lib/index.js",
   "module": "lib/index.js",
   "directories": {
@@ -14,6 +22,5 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "author": "WeisonZhong",
-  "license": "ISC"
+  "license": "MIT"
 }

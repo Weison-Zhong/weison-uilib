@@ -215,6 +215,7 @@ module.exports = function (webpackEnv) {
         // ? 'static/js/[name].[contenthash:8].js' 修改这一行为'lib/index.js'
         ? 'lib/index.js'
         : isEnvDevelopment && 'static/js/bundle.js',
+        libraryTarget: 'umd',
       // There are also additional JS chunk files if you use code splitting.
       chunkFilename: isEnvProduction
         ? 'static/js/[name].[contenthash:8].chunk.js'
